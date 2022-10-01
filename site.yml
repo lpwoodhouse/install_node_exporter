@@ -1,8 +1,27 @@
 ---
-- name: install node_exporter on rpi cluster nodes
-  hosts: all
-  become: true
-  gather_facts: true
+# main task for role execution
+- name: install node_exporter on linux nodes
+  hosts: localhost
+  gather_facts: no
+  
+  vars:
+    linux_hosts: "{{ survey_hosts.split('\n') }}"  
+  
+  tasks:
+    
+  - name: make host group from survey hosts list
+    add_host:
+      hostname: "{{ item }}"
+      groupname: new_group      
+    loop: "{{ linux_hosts }}"
 
-  roles:
-    - install_node_exporter
+- name: configure domain on hosts
+  hosts: new_group,!localhost
+  gather_facts: true
+  become: true
+  
+  tasks:
+  
+  - name: install node_exporter
+    include_role:
+      name: install_node_exporter
