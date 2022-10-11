@@ -1,6 +1,6 @@
 ---
 # main task for role execution
-- name: install node_exporter on linux nodes
+- name: configure inventory
   hosts: localhost
   gather_facts: no
   
@@ -15,13 +15,22 @@
       groupname: new_group      
     loop: "{{ linux_hosts }}"
 
-- name: configure domain on hosts
+- name: install node_exporter
   hosts: new_group,!localhost
-  gather_facts: true
   become: true
+  gather_facts: true
   
+  vars:
+    inc_prometheus_config: true
+    
   tasks:
-  
-  - name: install node_exporter
-    include_role:
-      name: install_node_exporter
+
+    - name: install node exporter
+      include_role:
+        name: install_node_exporter
+    
+    - name: configure prometheus
+      include_role:
+        name: prometheus_config
+      when: inc_prometheus_config|bool
+      run_once: true
