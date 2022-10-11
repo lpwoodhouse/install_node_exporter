@@ -2,10 +2,10 @@
 ![Linux](https://img.shields.io/badge/Linux-black?style=flat&logo=linux)
 ![Prometheus](https://img.shields.io/badge/-Prometheus-E6522C?style=flat&logo=prometheus&logoColor=white)
 [![playbook](https://img.shields.io/badge/Ansible%20Playbook-grey?stype=flat&logo=ansible&logoColor=EE0000)](site.yml)
-![GitHub last commit](https://img.shields.io/github/last-commit/lpwoodhouse/rpi_install_node_exporter)
-![GitHub repo file count](https://img.shields.io/github/directory-file-count/lpwoodhouse/rpi_install_node_exporter)
-![GitHub top language](https://img.shields.io/github/languages/top/lpwoodhouse/rpi_install_node_exporter)
-[![GitHub](https://img.shields.io/github/license/lpwoodhouse/rpi_install_node_exporter)](LICENSE)
+![GitHub last commit](https://img.shields.io/github/last-commit/lpwoodhouse/install_node_exporter)
+![GitHub repo file count](https://img.shields.io/github/directory-file-count/lpwoodhouse/install_node_exporter)
+![GitHub top language](https://img.shields.io/github/languages/top/lpwoodhouse/install_node_exporter)
+[![GitHub](https://img.shields.io/github/license/lpwoodhouse/install_node_exporter)](LICENSE)
 ## Purpose
 
 This playbook installs the node exporter service for publishing metrics that can be scraped by Prometheus. It can also update the configuration of an existing Prometheus host.<br>
